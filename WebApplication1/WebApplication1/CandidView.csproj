@@ -188,6 +188,7 @@
     </Compile>
     <Compile Include="Models\Column.cs" />
     <Compile Include="Models\GridData.cs" />
+    <Compile Include="Models\MetricsMaster.cs" />
     <Compile Include="Models\Metrics.cs" />
     <Compile Include="Models\Row.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -223,7 +224,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Data\Data.json" />
+    <Content Include="Data\data.json" />
+    <Content Include="Data\metrics.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
