@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Web.Http.Cors;
-using System.Web.Mvc;
+using Newtonsoft.Json;
+using CandidView.models;
+using System.IO;
+using System.Web;
 
 namespace WebApplication1.Controllers
 {
@@ -12,12 +11,10 @@ namespace WebApplication1.Controllers
     public class ProjectInfoController : ApiController
     {
         // GET api/projectinfo
-        public Info[] Get()
-        {
-            var dic = new Dictionary<long, Info>();
-            dic.Add(1, new Info { id = 1, name = "CARE - Number of defects 10" });
-            dic.Add(2, new Info { id = 2, name = "Budget Variance - 17%" });
-            return dic.Values.ToArray();
+        public GridData Get()
+        {	
+            GridData data = JsonConvert.DeserializeObject<GridData>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/data.json")));
+            return data;
         }
     }
 }
