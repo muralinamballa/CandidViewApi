@@ -1,7 +1,7 @@
 ﻿using System.Web.Http;
 using System.Web.Http.Cors;
 using Newtonsoft.Json;
-using CandidView.Models.ProjectInfo;
+using CandidView.Models.ProjectStatus;
 using System.IO;
 using System.Web;
 using System.Collections.Generic;
@@ -13,9 +13,9 @@ namespace WebApplication1.Controllers
     {
         // GET api/projectinfo
         [HttpGet]
-        public GridData GetProjectInfo()
+        public List<ProjectStatus> GetProjectInfo()
         {	
-            GridData data = JsonConvert.DeserializeObject<GridData>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/data.json")));
+            List<ProjectStatus> data = JsonConvert.DeserializeObject<List<ProjectStatus>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/projectstatus.json")));
             return data;
         }
 

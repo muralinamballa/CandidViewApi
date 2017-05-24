@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace CandidView.Models.ProjectInfo
+namespace CandidView.Models.ProjectStatus
 {
     public class Metrics
     {

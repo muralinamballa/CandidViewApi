@@ -1,13 +1,13 @@
 ﻿using Newtonsoft.Json;
 
-namespace CandidView.Models.ProjectInfo
+namespace CandidView.Models.ProjectStatus
 {
-    public class Row
+    public class ProjectStatus
     {
         [JsonProperty(PropertyName = "slno")]
         int Slno { get; set; }
-        [JsonProperty(PropertyName = "projectName")]
-        string ProjectName { get; set; }
+        [JsonProperty(PropertyName = "businessUnit")]
+        string BusinessUnit { get; set; }
         [JsonProperty(PropertyName = "programName")]
         string ProgramName { get; set; }
         [JsonProperty(PropertyName = "owner")]
