@@ -187,9 +187,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProjectInfo\MetricSLA.cs" />
     <Compile Include="Models\ProjectInfo\ProjectStatus.cs" />
     <Compile Include="Models\ProjectInfo\MetricsMaster.cs" />
-    <Compile Include="Models\ProjectInfo\Metrics.cs" />
+    <Compile Include="Models\ProjectInfo\MetricQuality.cs" />
     <Compile Include="Models\RiskStatus\RiskStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
