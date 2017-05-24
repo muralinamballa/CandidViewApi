@@ -1,0 +1,24 @@
+﻿[
+  {
+    "accomplishments": "Completed",
+    "inprogress": "InProgress",
+    "upcommingmilestones": "Upcomming"
+  },
+  {
+    "accomplishments": "Completed",
+    "inprogress": "Progress",
+    "upcommingmilestones": "Upcomming"
+  },
+  {
+    "accomplishments": "Incompleted",
+    "inprogress": "InProgress",
+    "upcommingmilestones": "Open"
+  },
+  {
+    "accomplishments": "NotStarted",
+    "inprogress": "NotinProgress",
+    "upcommingmilestones": "NotStarted"
+  }
+
+
+]

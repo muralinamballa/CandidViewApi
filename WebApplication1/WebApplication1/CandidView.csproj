@@ -187,6 +187,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\HighlightsStatus\HighlightsStatus.cs" />
     <Compile Include="Models\ProjectInfo\MetricSLA.cs" />
     <Compile Include="Models\ProjectInfo\ProjectStatus.cs" />
     <Compile Include="Models\ProjectInfo\MetricsMaster.cs" />
@@ -228,6 +229,7 @@
     <Content Include="Data\projectstatus.json" />
     <Content Include="Data\metrics.json" />
     <Content Include="Data\riskstatus.json" />
+    <Content Include="Data\highlightsstatus.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
