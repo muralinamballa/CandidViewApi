@@ -1,0 +1,19 @@
+﻿[
+  {
+    "slno": "1",
+    "type": "TypeA",
+    "description": "DescriptionA",
+    "owner": "OwnerA",
+    "exposure": "ExposureA",
+    "status": "StatusA"
+  },
+  {
+    "slno": "2",
+    "type": "TypeB",
+    "description": "DescriptionB",
+    "owner": "OwnerB",
+    "exposure": "ExposureB",
+    "status": "StatusB"
+  }
+]
+
