@@ -39,15 +39,15 @@
             "owner": "Shafi/Babu",
             "teamSize": "33",
             "scope": {
-                "value": "0",
+                "value": "0.9",
                 "background": ""
             },
             "schedule": {
-                "value": "0",
+                "value": "0.5",
                 "background": ""
             },
             "quality": {
-                "value": "0",
+                "value": "-1",
                 "background": ""
             },
             "sla": {
@@ -66,7 +66,7 @@
                 "background": ""
             },
             "schedule": {
-                "value": "0",
+                "value": "-1",
                 "background": ""
             },
             "quality": {
@@ -74,7 +74,7 @@
                 "background": ""
             },
             "sla": {
-                "value": "0",
+                "value": "0.6",
                 "background": ""
             },
             "remarks": "Merge Issue -Andy Gray*2"
