@@ -1,7 +1,7 @@
 ﻿using System.Web.Http;
 using System.Web.Http.Cors;
 using Newtonsoft.Json;
-using CandidView.models;
+using CandidView.Models.ProjectInfo;
 using System.IO;
 using System.Web;
 using System.Collections.Generic;

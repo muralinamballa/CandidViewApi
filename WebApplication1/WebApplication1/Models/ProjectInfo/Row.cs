@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace CandidView.models
+namespace CandidView.Models.ProjectInfo
 {
     public class Row
     {
