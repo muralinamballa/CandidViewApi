@@ -1,19 +1,30 @@
 ﻿[
   {
     "slno": "1",
-    "type": "TypeA",
-    "description": "DescriptionA",
-    "owner": "OwnerA",
-    "exposure": "ExposureA",
-    "status": "StatusA"
+    "type": "Dependency",
+    "program": "Marvel",
+    "description": "Dependent on Global Micro UI component such as CMS, Localization and  Mobile host for Beneficiary and Successor project",
+    "owner": "Atomic Theory Team",
+    "exposure": "High",
+    "status": "In Progress"
   },
   {
     "slno": "2",
-    "type": "TypeB",
-    "description": "DescriptionB",
-    "owner": "OwnerB",
-    "exposure": "ExposureB",
-    "status": "StatusB"
+    "type": "Risk",
+    "program": "Panthers",
+    "description": "QA configurations need to be updated by CAM team",
+    "owner": "CAM",
+    "exposure": "Critical",
+    "status": "Resolved"
+  },
+  {
+    "slno": "3",
+    "type": "Risk",
+    "program": "Phoenix",
+    "description": "Omnibus client need disbursement facility",
+    "owner": "Ankit K",
+    "exposure": "Medium",
+    "status": "In Progress"
   }
 ]
 

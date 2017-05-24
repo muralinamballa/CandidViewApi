@@ -8,6 +8,8 @@ namespace CandidView.Models.RiskStatus
         int Slno { get; set; }
         [JsonProperty(PropertyName = "type")]
         string Type { get; set; }
+        [JsonProperty(PropertyName = "program")]
+        string Program { get; set; }
         [JsonProperty(PropertyName = "description")]
         string Description { get; set; }
         [JsonProperty(PropertyName = "owner")]
