@@ -186,11 +186,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Column.cs" />
-    <Compile Include="Models\GridData.cs" />
-    <Compile Include="Models\MetricsMaster.cs" />
-    <Compile Include="Models\Metrics.cs" />
-    <Compile Include="Models\Row.cs" />
+    <Compile Include="Models\ProjectInfo\Column.cs" />
+    <Compile Include="Models\ProjectInfo\GridData.cs" />
+    <Compile Include="Models\ProjectInfo\MetricsMaster.cs" />
+    <Compile Include="Models\ProjectInfo\Metrics.cs" />
+    <Compile Include="Models\ProjectInfo\Row.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
