@@ -188,12 +188,16 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\HighlightsStatus\HighlightsStatus.cs" />
+    <Compile Include="Models\Master\BUMaster.cs" />
+    <Compile Include="Models\Master\TeamMaster.cs" />
     <Compile Include="Models\ProjectInfo\MetricSLA.cs" />
     <Compile Include="Models\ProjectInfo\ProjectStatus.cs" />
     <Compile Include="Models\ProjectInfo\MetricsMaster.cs" />
     <Compile Include="Models\ProjectInfo\MetricQuality.cs" />
+    <Compile Include="Models\Master\ProgramMaster.cs" />
     <Compile Include="Models\RiskStatus\RiskStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ProjectStatusServiceController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
