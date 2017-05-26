@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace CandidView.Models.ProjectStatus
 {
-    public class MetricsMaster
+    public class Metrics
     {
         [JsonProperty(PropertyName = "metricName")]
         string MetricName { get; set; }

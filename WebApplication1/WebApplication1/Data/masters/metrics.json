@@ -1,0 +1,14 @@
+﻿[
+    {
+        "metricName": "Scope"
+    },
+    {
+        "metricName": "Schedule"
+    },
+    {
+        "metricName": "Quality"
+    },
+    {
+        "metricName": "SLA"
+    }
+]
