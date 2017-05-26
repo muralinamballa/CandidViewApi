@@ -1,24 +1,34 @@
 ﻿[
-    {
-        "sprintNumber": "17",
-        "startDate": "05/17/2017",
-        "endDate": "05/30/2017"
-    },
-    {
-        "sprintNumber": "18",
-        "startDate": "05/31/2017",
-        "endDate": "06/06/2017"
-    },
-    {
-        "sprintNumber": "19",
-        "startDate": "06/07/2017",
-        "endDate": "06/20/2017"
-    },
-    {
-        "sprintNumber": "20",
-        "startDate": "06/21/2017",
-        "endDate": "07/04/2017"
-    }
+  {
+    "sprintNumber": "17",
+    "startDate": "05/17/2017",
+    "endDate": "05/30/2017"
+  },
+  {
+    "sprintNumber": "18",
+    "startDate": "05/31/2017",
+    "endDate": "06/06/2017"
+  },
+  {
+    "sprintNumber": "19",
+    "startDate": "06/07/2017",
+    "endDate": "06/20/2017"
+  },
+  {
+    "sprintNumber": "20",
+    "startDate": "06/21/2017",
+    "endDate": "07/04/2017"
+  },
+  {
+    "sprintNumber": "21",
+    "startDate": "07/05/2017",
+    "endDate": "07/18/2017"
+  },
+  {
+    "sprintNumber": "22",
+    "startDate": "07/19/2017",
+    "endDate": "08/01/2017"
+  }
 ]
 
 

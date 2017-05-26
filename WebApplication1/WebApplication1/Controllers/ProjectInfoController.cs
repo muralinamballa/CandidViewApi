@@ -5,6 +5,7 @@ using CandidView.Models.ProjectStatus;
 using System.IO;
 using System.Web;
 using System.Collections.Generic;
+using CandidView.Services;
 
 namespace WebApplication1.Controllers
 {
@@ -15,8 +16,9 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public List<ProjectStatus> GetProjectInfo()
         {
-            List<ProjectStatus> data = JsonConvert.DeserializeObject<List<ProjectStatus>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/projectstatus.json")));
-            return data;
+            // List<ProjectStatus> data = JsonConvert.DeserializeObject<List<ProjectStatus>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/projectstatus.json")));
+            ProjectStatusService statusService = new ProjectStatusService();
+            return statusService.GetProjectInfo();
         }
 
         [HttpGet]
