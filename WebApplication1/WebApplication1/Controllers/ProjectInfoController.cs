@@ -5,8 +5,6 @@ using CandidView.Models.ProjectStatus;
 using System.IO;
 using System.Web;
 using System.Collections.Generic;
-using System;
-using CandidView.Services;
 
 namespace WebApplication1.Controllers
 {
@@ -27,8 +25,5 @@ namespace WebApplication1.Controllers
             List<MetricsMaster> data = JsonConvert.DeserializeObject<List<MetricsMaster>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/metrics.json")));
             return data;
         }
-
-       
-       
     }
 }

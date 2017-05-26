@@ -22,12 +22,6 @@ namespace WebApplication1
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi1",
-                routeTemplate: "{Services}/{controller}/{action}",
-                defaults: new { id = RouteParameter.Optional }
-            );
-
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
         }
     }
