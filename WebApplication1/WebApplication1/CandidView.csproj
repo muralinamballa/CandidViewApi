@@ -197,7 +197,7 @@
     <Compile Include="Models\Master\ProgramMaster.cs" />
     <Compile Include="Models\RiskStatus\RiskStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ProjectStatusServiceController.cs" />
+    <Compile Include="Services\ProjectStatusService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

@@ -2,12 +2,10 @@
 using System.Web.Http;
 using System.IO;
 using CandidView.Models.Master;
-using System.Linq;
-
 namespace CandidView.Services
 {
 
-    public class ProjectStatusServiceController : ApiController
+    public class ProjectStatusService : ApiController
     {
 
         public List<ProgramMaster> GetProjectInfo()
