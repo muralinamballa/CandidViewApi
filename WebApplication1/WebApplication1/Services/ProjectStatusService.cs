@@ -15,55 +15,64 @@ namespace CandidView.Services
         {
             try
             {
-            List<ProjectStatus> projectStatusList = new List<ProjectStatus>();           
-            List<Program> programData = JsonConvert.DeserializeObject<List<Program>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/masters/program.json")));
-            List<BusinessUnit> businessData = JsonConvert.DeserializeObject<List<BusinessUnit>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/masters/businessunit.json")));
-            int i = 0;
+                List<ProjectStatus> projectStatusList = new List<ProjectStatus>();
+                List<Program> programData = JsonConvert.DeserializeObject<List<Program>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/masters/program.json")));
+                List<BusinessUnit> businessData = JsonConvert.DeserializeObject<List<BusinessUnit>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/masters/businessunit.json")));
+                int i = 0;
 
-            using (var fs = File.OpenRead(@"C:\Data\projectstatus4.csv"))
-            {
-                using (var reader = new StreamReader(fs))
+                using (var fs = File.OpenRead(@"C:\Data\projectstatus.csv"))
                 {
-                    while (!reader.EndOfStream)
+                    using (var reader = new StreamReader(fs))
                     {
-                        i++;
-                        var line = reader.ReadLine();
-                        if (i > 1)
+                        while (!reader.EndOfStream)
                         {
-                            string[] values = line.Split(',');
-                            var programInfo = programData.Find(item => item.ProgramId.ToString() == values[0]);
-                            var buInfo = businessData.Find(item => item.BuId == programInfo.BuId);
-                            projectStatusList.Add(new ProjectStatus
+                            i++;
+                            var line = reader.ReadLine();
+                            if (i > 1)
                             {
-                                Slno = i--,
-                                BusinessUnit = buInfo.BuName,
-                                ProgramName = programInfo.ProgramName,
-                                Owner = programInfo.Owner,
-                                TeamSize = programInfo.TeamSize,
-                                //Scope = int.Parse(values[5]),
-                                Schedule = CalculateSchedule(values),
-                                //Quality = int.Parse(values[7]),
-                                Sla =new MetricSLA
+                                string[] values = line.Split(',');
+                                var programInfo = programData.Find(item => item.ProgramId.ToString() == values[0]);
+                                var buInfo = businessData.Find(item => item.BuId == programInfo.BuId);
+                                projectStatusList.Add(new ProjectStatus
                                 {
-                                    ScheduleAdherence = int.Parse(values[11]),
-                                    DefectDensityNonProd = Convert.ToDecimal(values[12]),
-                                    Sev1DefectLeakageNonProd = int.Parse(values[13]),
-                                    DefectDensityProd = Convert.ToDecimal(values[14]),
-                                    Sev1DefectLeakageProd = int.Parse(values[15]),
-                                    Sev2DefectLeakageProd = int.Parse(values[16]),
-                                    DefectRejectionRate = int.Parse(values[17])
-                                }
-                            });
+                                    Slno = i--,
+                                    BusinessUnit = buInfo.BuName,
+                                    ProgramName = programInfo.ProgramName,
+                                    Owner = programInfo.Owner,
+                                    TeamSize = programInfo.TeamSize,
+                                    Scope = CalculateScope(values),
+                                    Schedule = CalculateSchedule(values),
+                                    //Quality = int.Parse(values[7]),
+                                    Sla = new MetricSLA
+                                    {
+                                        ScheduleAdherence = int.Parse(values[11]),
+                                        DefectDensityNonProd = Convert.ToDecimal(values[12]),
+                                        Sev1DefectLeakageNonProd = int.Parse(values[13]),
+                                        DefectDensityProd = Convert.ToDecimal(values[14]),
+                                        Sev1DefectLeakageProd = int.Parse(values[15]),
+                                        Sev2DefectLeakageProd = int.Parse(values[16]),
+                                        DefectRejectionRate = int.Parse(values[17])
+                                    }
+                                });
+                            }
                         }
                     }
-                    return projectStatusList;
                 }
-            }
+                return projectStatusList;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+        }
+
+        private decimal CalculateScope(string[] values)
+        {
+            List<Commitment> commitment = JsonConvert.DeserializeObject<List<Commitment>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/masters/commitment.json")));
+            var scope = commitment.Find(item => item.ProgramId.ToString() == values[0]);
+
+            return (int.Parse(values[3]) / scope.PlannedCapacityinStoryPoints) * 100;
+
         }
 
         private decimal CalculateSchedule(string[] values)
@@ -83,6 +92,7 @@ namespace CandidView.Services
             //decimal noOfFDNDefects = int.Parse(values[10]);
             //decimal noOfSecurityDefects = 0;
             return 0;
+
         }
     }
 }

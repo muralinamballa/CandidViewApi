@@ -1,0 +1,38 @@
+﻿[
+  {
+    "programId": "1241",
+    "releasenumber": "17.14",
+    "plannedCapacityinStoryPoints": "90"
+  },
+  {
+    "programId": "1352",
+    "releasenumber": "17.16",
+    "plannedCapacityinStoryPoints": "95"
+  },
+  {
+    "programId": "1463",
+    "releasenumber": "17.16",
+    "plannedCapacityinStoryPoints": "93"
+  },
+  {
+    "programId": "1574",
+    "releasenumber": "17.16",
+    "plannedCapacityinStoryPoints": "92"
+  },
+  {
+    "programId": "1685",
+    "releasenumber": "17.16",
+    "plannedCapacityinStoryPoints": "91"
+  },
+  {
+    "programId": "1796",
+    "releasenumber": "17.16",
+    "plannedCapacityinStoryPoints": "99"
+  },
+  {
+    "programId": "1807",
+    "releasenumber": "17.16",
+    "plannedCapacityinStoryPoints": "98"
+  }
+
+]

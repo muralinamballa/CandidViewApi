@@ -15,14 +15,12 @@ namespace CandidView.Models.ProjectStatus
         [JsonProperty(PropertyName = "teamSize")]
         public int TeamSize { get; set; }
         [JsonProperty(PropertyName = "scope")]
-        public int Scope { get; set; }
+        public decimal Scope { get; set; }
         [JsonProperty(PropertyName = "schedule")]
         public decimal Schedule { get; set; }
         [JsonProperty(PropertyName = "quality")]
         public decimal Quality { get; set; }
         [JsonProperty(PropertyName = "sla")]
         public MetricSLA Sla { get; set; }
-        [JsonProperty(PropertyName = "remarks")]
-        string Remarks { get; set; }
     }
 }

@@ -189,6 +189,7 @@
     </Compile>
     <Compile Include="Models\HighlightsStatus\HighlightsStatus.cs" />
     <Compile Include="Models\Master\BusinessUnit.cs" />
+    <Compile Include="Models\Master\Commitment.cs" />
     <Compile Include="Models\Master\ReleaseCalendar.cs" />
     <Compile Include="Models\Master\SprintCalendar.cs" />
     <Compile Include="Models\ProjectInfo\MetricSLA.cs" />
@@ -239,6 +240,7 @@
     <Content Include="Data\masters\program.json" />
     <Content Include="Data\masters\releasecalendar.json" />
     <Content Include="Data\masters\sprintcalendar.json" />
+    <Content Include="Data\masters\commitment.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
