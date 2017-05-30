@@ -1,10 +1,51 @@
 ﻿[
-    {
-        "buId": "1",
-        "programId": "1000",
-        "programName": "Equity Award Center (EAC)",
-        "owner": "Shafi",
-        "teamSize": 70
-    }
+  {
+    "buId": "1",
+    "programId": "1241",
+    "programName": "Marvel",
+    "owner": "Shafi",
+    "teamSize": 70
+  },
+  {
+    "buId": "1",
+    "programId": "1352",
+    "programName": "Panthers",
+    "owner": "Shafi",
+    "teamSize": 60
+  },
+  {
+    "buId": "1",
+    "programId": "1463",
+    "programName": "Phoenix",
+    "owner": "Shafi",
+    "teamSize": 50
+  },
+  {
+    "buId": "1",
+    "programId": "1574",
+    "programName": "Dynamos",
+    "owner": "Shafi",
+    "teamSize": 40
+  },
+  {
+    "buId": "1",
+    "programId": "1685",
+    "programName": "Enhancers",
+    "owner": "Shafi",
+    "teamSize": 30
+  },
+  {
+    "buId": "1",
+    "programId": "1796",
+    "programName": "Olympians",
+    "owner": "Shafi",
+    "teamSize": 20
+  },
+  {
+    "buId": "1",
+    "programId": "1807",
+    "programName": "Himalayans",
+    "owner": "Shafi",
+    "teamSize": 10
+  }
 ]
-

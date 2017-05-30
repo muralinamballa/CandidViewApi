@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace CandidView.Models.Master
 {
@@ -7,8 +8,10 @@ namespace CandidView.Models.Master
         [JsonProperty(PropertyName = "sprintNumber")]
         public int SprintNumber { get; set; }
         [JsonProperty(PropertyName = "startDate")]
-        public string StartDate { get; set; }
+        public DateTime StartDate { get; set; }
         [JsonProperty(PropertyName = "endDate")]
-        public string EndDate { get; set; }
+        public DateTime EndDate { get; set; }
+        [JsonProperty(PropertyName = "releaseNumber")]
+        public string ReleaseNumber { get; set; }
     }
 }

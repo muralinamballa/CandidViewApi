@@ -1,19 +1,19 @@
 ﻿[
   {
-    "releaseNumber": "17.17",
+    "releaseNumber": "17.14",
+    "codeFreezDate": "06/29/2017"
+  },
+  {
+    "releaseNumber": "17.15",
     "codeFreezDate": "07/29/2017"
   },
   {
-    "releaseNumber": "17.18",
-    "codeFreezDate": "10/10/2018"
+    "releaseNumber": "17.16",
+    "codeFreezDate": "08/29/2017"
   },
   {
-    "releaseNumber": "17.19",
-    "codeFreezDate": "10/10/2018"
-  },
-  {
-    "releaseNumber": "17.20",
-    "codeFreezDate": "10/10/2018"
+    "releaseNumber": "17.17",
+    "codeFreezDate": "09/29/2017"
   }
 ]
 
