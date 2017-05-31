@@ -24,7 +24,7 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public List<Metrics> GetMetricsMasterInfo()
         {
-            List<Metrics> data = JsonConvert.DeserializeObject<List<Metrics>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/metrics.json")));
+            List<Metrics> data = JsonConvert.DeserializeObject<List<Metrics>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/masters/metrics.json")));
             return data;
         }
     }

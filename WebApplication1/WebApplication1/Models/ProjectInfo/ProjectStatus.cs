@@ -20,7 +20,5 @@ namespace CandidView.Models.ProjectStatus
         public decimal Schedule { get; set; }
         [JsonProperty(PropertyName = "quality")]
         public decimal Quality { get; set; }
-        [JsonProperty(PropertyName = "sla")]
-        public MetricSLA Sla { get; set; }
     }
 }
