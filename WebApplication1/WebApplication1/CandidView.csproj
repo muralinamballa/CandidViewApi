@@ -188,17 +188,17 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\HighlightsStatus\HighlightsStatus.cs" />
+    <Compile Include="Models\Input\MetricsSla.cs" />
     <Compile Include="Models\Master\BusinessUnit.cs" />
     <Compile Include="Models\Master\Commitment.cs" />
     <Compile Include="Models\Master\ReleaseCalendar.cs" />
     <Compile Include="Models\Master\SprintCalendar.cs" />
-    <Compile Include="Models\ProjectInfo\MetricSLA.cs" />
-    <Compile Include="Models\ProjectInfo\ProjectStatus.cs" />
-    <Compile Include="Models\Master\Metrics.cs" />
-    <Compile Include="Models\ProjectInfo\MetricQuality.cs" />
+    <Compile Include="Models\Output\ProjectStatus.cs" />
+    <Compile Include="Models\Input\MetricQuality.cs" />
     <Compile Include="Models\Master\Program.cs" />
     <Compile Include="Models\RiskStatus\RiskStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\OverallStatusService.cs" />
     <Compile Include="Services\ProjectStatusService.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -233,8 +233,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\transaction\highlightsstatus.json" />
-    <Content Include="Data\masters\metrics.json" />
-    <Content Include="Data\transaction\projectstatus.json" />
     <Content Include="Data\transaction\riskstatus.json" />
     <Content Include="Data\masters\businessunit.json" />
     <Content Include="Data\masters\program.json" />

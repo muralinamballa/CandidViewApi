@@ -4,12 +4,12 @@ using System.IO;
 using CandidView.Models.Master;
 using Newtonsoft.Json;
 using System.Web;
-using CandidView.Models.ProjectStatus;
+using CandidView.Models.Output;
 using System;
 
 namespace CandidView.Services
 {
-    public class ProjectStatusService : ApiController
+    public class ProjectStatusService
     {
         public List<ProjectStatus> GetProjectInfo()
         {
@@ -28,16 +28,16 @@ namespace CandidView.Services
                         {
                             i++;
                             var line = reader.ReadLine();
-                            if (i > 2)
+                            if (i > 1)
                             {
                                 string[] values = line.Split(',');
                                 var programInfo = programData.Find(item => item.ProgramId.ToString() == values[1]);
                                 var buInfo = businessData.Find(item => item.BuId == programInfo.BuId);
                                 projectStatusList.Add(new ProjectStatus
                                 {
-                                    //projectStatusList.Count+1
-                                    Slno = i-2,
-                                    BusinessUnit = buInfo.BuName,
+                                    Slno = projectStatusList.Count+1,
+                                    BuId = buInfo.BuId,
+                                    BuName = buInfo.BuName,
                                     ProgramName = programInfo.ProgramName,
                                     Owner = programInfo.Owner,
                                     TeamSize = programInfo.TeamSize,
@@ -69,20 +69,11 @@ namespace CandidView.Services
         private decimal CalculateSchedule(string[] values)
         {
             List<SprintCalendar> sprintData = JsonConvert.DeserializeObject<List<SprintCalendar>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/masters/sprintcalendar.json")));
-            int releaseSprintNumber = releaseSprint(values);
+            var releaseSprint = sprintData.Find(item => item.ReleaseNumber == values[2]);
             var currentSprint = sprintData.Find(item => (DateTime.Today >= item.StartDate && DateTime.Today <= item.EndDate));
-            var noOfSprints = releaseSprintNumber - currentSprint.SprintNumber;
+            var noOfSprints = releaseSprint.SprintNumber - currentSprint.SprintNumber;
             decimal schedule = Convert.ToDecimal((noOfSprints - 1) - (int.Parse(values[3]) / int.Parse(values[5])));
             return schedule;
-        }
-
-        private int releaseSprint(string[] values)
-        {
-            List<SprintCalendar> sprintData = JsonConvert.DeserializeObject<List<SprintCalendar>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/masters/sprintcalendar.json")));
-            List<ReleaseCalendar> releaseData = JsonConvert.DeserializeObject<List<ReleaseCalendar>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/masters/releasecalendar.json")));
-            var releaseMonth = releaseData.Find(item => item.ReleaseNumber.ToString() == values[2]);
-            var releaseSprint = sprintData.Find(item => (releaseMonth.CodeFreezeDate >= item.StartDate && releaseMonth.CodeFreezeDate <= item.EndDate));
-            return releaseSprint.SprintNumber;
         }
 
         private decimal CalculateQuality(string[] values)

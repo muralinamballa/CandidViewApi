@@ -1,7 +1,7 @@
 ﻿using System.Web.Http;
 using System.Web.Http.Cors;
 using Newtonsoft.Json;
-using CandidView.Models.ProjectStatus;
+using CandidView.Models.Output;
 using System.IO;
 using System.Web;
 using System.Collections.Generic;
@@ -16,16 +16,15 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public List<ProjectStatus> GetProjectInfo()
         {
-            // List<ProjectStatus> data = JsonConvert.DeserializeObject<List<ProjectStatus>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/projectstatus.json")));
             ProjectStatusService statusService = new ProjectStatusService();
             return statusService.GetProjectInfo();
         }
 
         [HttpGet]
-        public List<Metrics> GetMetricsMasterInfo()
+        public string GetSlaDetail()
         {
-            List<Metrics> data = JsonConvert.DeserializeObject<List<Metrics>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/masters/metrics.json")));
-            return data;
+            OverallStatusService statusService = new OverallStatusService();
+            return statusService.GetSlaInfo();
         }
     }
 }
