@@ -7,7 +7,7 @@ using System.Web;
 using System.Collections.Generic;
 using CandidView.Services;
 
-namespace WebApplication1.Controllers
+namespace CandidView.Controllers
 {
     [EnableCors(origins: "http://localhost:3000", headers: "*", methods: "*")]
     public class ProjectInfoController : ApiController
