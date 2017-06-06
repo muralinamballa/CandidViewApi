@@ -21,6 +21,6 @@ namespace CandidView.Models.Output
         [JsonProperty(PropertyName = "schedule")]
         public decimal Schedule { get; set; }
         [JsonProperty(PropertyName = "quality")]
-        public decimal Quality { get; set; }
+        public MetricQuality Quality { get; set; }
     }
 }

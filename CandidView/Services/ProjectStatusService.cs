@@ -20,7 +20,7 @@ namespace CandidView.Services
                 List<BusinessUnit> businessData = JsonConvert.DeserializeObject<List<BusinessUnit>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/masters/businessunit.json")));
                 int i = 0;
 
-                using (var fs = File.OpenRead(@"C:\Data\projectstatus.csv"))
+                using (var fs = File.OpenRead(@"C:\Data\ProjectStatus2.csv"))
                 {
                     using (var reader = new StreamReader(fs))
                     {
@@ -28,9 +28,10 @@ namespace CandidView.Services
                         {
                             i++;
                             var line = reader.ReadLine();
-                            if (i > 1)
+                            if (i > 2)
                             {
                                 string[] values = line.Split(',');
+                                decimal[] quality = CalculateQuality(values);
                                 var programInfo = programData.Find(item => item.ProgramId.ToString() == values[1]);
                                 var buInfo = businessData.Find(item => item.BuId == programInfo.BuId);
                                 projectStatusList.Add(new ProjectStatus
@@ -43,7 +44,13 @@ namespace CandidView.Services
                                     TeamSize = programInfo.TeamSize,
                                     Scope = CalculateScope(values),
                                     Schedule = CalculateSchedule(values),
-                                    //Quality = int.Parse(values[8])
+                                    Quality = new MetricQuality
+                                    {
+                                        RequirementTestCoverage = quality[0],
+                                        AverageLeadTime = quality[1],
+                                        DefectLeakageQA = quality[2],
+                                        ProductionDefect = quality[3]
+                                    }
                                 });
                             }
                         }
@@ -62,7 +69,7 @@ namespace CandidView.Services
             List<Commitment> commitment = JsonConvert.DeserializeObject<List<Commitment>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/masters/commitment.json")));
             var scope = commitment.Find(item => item.ProgramId.ToString() == values[1]);
 
-            return (int.Parse(values[4]) / scope.PlannedCapacityinStoryPoints) * 100;
+            return Math.Round((Convert.ToDecimal(values[4]) / scope.PlannedCapacityinStoryPoints * 100), 2);
 
         }
 
@@ -85,13 +92,18 @@ namespace CandidView.Services
         }
 
 
-        private decimal CalculateQuality(string[] values)
+        private decimal[] CalculateQuality(string[] values)
         {
-            //decimal defectLeakage = Convert.ToDecimal((0.4 * int.Parse(values[6])) + (0.6 * int.Parse(values[7])));
-            //decimal productionDefect = Convert.ToDecimal(0.5 * int.Parse(values[8] + 0.3 * int.Parse(values[9]) + 0.2 * int.Parse(values[10])));
-            //decimal noOfFDNDefects = int.Parse(values[11]);
-            //decimal noOfSecurityDefects = 0;
-            return 0;
+            decimal[] qualityCalculation = new decimal[4];
+            decimal RequirementTestCoverage = Math.Round((Convert.ToDecimal(values[12] + values[14]) / Convert.ToDecimal(values[11] + values[13])),2);
+            decimal AverageLeadTime = Convert.ToDecimal(values[25]);
+            decimal DefectLeakageQA = Convert.ToDecimal(0.4 + Convert.ToInt32(values[6]) + 0.6 + Convert.ToInt32(values[7]));
+            decimal ProductionDefect = Convert.ToDecimal(0.5 + Convert.ToInt32(values[8]) + 0.3 + Convert.ToInt32(values[9]) + 0.3 + Convert.ToInt32(values[10]));
+            qualityCalculation[0] = RequirementTestCoverage;
+            qualityCalculation[1] = AverageLeadTime;
+            qualityCalculation[2] = DefectLeakageQA;
+            qualityCalculation[3] = ProductionDefect;
+            return qualityCalculation;
 
         }
     }

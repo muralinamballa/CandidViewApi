@@ -4,13 +4,13 @@ namespace CandidView.Models.Output
 {
     public class MetricQuality
     {
-        [JsonProperty(PropertyName = "defectLeakage")]
-        decimal DefectLeakage { get; set; }
+        [JsonProperty(PropertyName = "requirementTestCoverage")]
+        public decimal RequirementTestCoverage { get; set; }
+        [JsonProperty(PropertyName = "averageLeadTime")]
+        public decimal AverageLeadTime { get; set; }
+        [JsonProperty(PropertyName = "defectLeakageQA")]
+        public decimal DefectLeakageQA { get; set; }
         [JsonProperty(PropertyName = "productionDefect")]
-        decimal ProductionDefect { get; set; }
-        [JsonProperty(PropertyName = "fdnDefects")]
-        decimal FDNDefects { get; set; }
-        [JsonProperty(PropertyName = "securityDefects")]
-        decimal SecurityDefects { get; set; }
+        public decimal ProductionDefect { get; set; }
     }
 }

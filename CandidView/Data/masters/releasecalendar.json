@@ -1,5 +1,9 @@
 ﻿[
   {
+    "releaseNumber": "17.12",
+    "codeFreezDate": "06/08/2017"
+  },
+  {
     "releaseNumber": "17.14",
     "codeFreezDate": "06/29/2017"
   },
