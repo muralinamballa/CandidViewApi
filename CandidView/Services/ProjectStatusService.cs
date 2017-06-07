@@ -96,7 +96,11 @@ namespace CandidView.Services
         private decimal[] CalculateQuality(string[] values)
         {
             decimal[] qualityCalculation = new decimal[4];
-            decimal requirementTestCoverage = Math.Round((Convert.ToDecimal(values[12] + values[14]) / Convert.ToDecimal(values[11] + values[13])),2);
+            List<SprintCalendar> sprintData = JsonConvert.DeserializeObject<List<SprintCalendar>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/masters/sprintcalendar.json")));            
+            var currentSprint = sprintData.Find(item => (DateTime.Today >= item.StartDate && DateTime.Today <= item.EndDate));
+            var daysLeftIndex = Convert.ToInt32((currentSprint.EndDate - DateTime.Today).TotalDays/10);
+            decimal pendingTestCoverage = Math.Round((Convert.ToDecimal(values[12] + values[14]) / Convert.ToDecimal(values[11] + values[13])),2);
+            decimal requirementTestCoverage = daysLeftIndex - pendingTestCoverage;
             decimal averageLeadTime = Convert.ToDecimal(values[25]);
             decimal defectLeakageQA = Convert.ToDecimal(0.4 + Convert.ToInt32(values[6]) + 0.6 + Convert.ToInt32(values[7]));
             decimal productionDefect = Convert.ToDecimal(0.5 + Convert.ToInt32(values[8]) + 0.3 + Convert.ToInt32(values[9]) + 0.3 + Convert.ToInt32(values[10]));
