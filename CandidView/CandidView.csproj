@@ -138,6 +138,7 @@
     <Compile Include="Models\Input\CodeReviewDev.cs" />
     <Compile Include="Models\Input\CodeReviewQA.cs" />
     <Compile Include="Models\Input\MetricQualityEngineeringPractice.cs" />
+    <Compile Include="Models\Input\MetricResource.cs" />
     <Compile Include="Models\Input\MetricsSla.cs" />
     <Compile Include="Models\Master\BusinessUnit.cs" />
     <Compile Include="Models\Master\Commitment.cs" />

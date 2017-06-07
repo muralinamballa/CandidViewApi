@@ -20,7 +20,7 @@ namespace CandidView.Services
                 List<BusinessUnit> businessData = JsonConvert.DeserializeObject<List<BusinessUnit>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/masters/businessunit.json")));
                 int i = 0;
 
-                using (var fs = File.OpenRead(@"C:\Data\ProjectStatus3.csv"))
+                using (var fs = File.OpenRead(@"C:\Data\ProjectStatus.csv"))
                 {
                     using (var reader = new StreamReader(fs))
                     {
@@ -73,6 +73,12 @@ namespace CandidView.Services
                                         },
                                         MaintainabilityIndex = Convert.ToDecimal(values[23]),
                                         CyclomaticComplexity = Convert.ToDecimal(values[24])
+                                    },
+                                    Resource = new MetricResource
+                                    {
+                                        Attrition = Convert.ToDecimal(values[26]),
+                                        AvailabilityofResource = values[27]
+                                        
                                     }
                                 });
                             }

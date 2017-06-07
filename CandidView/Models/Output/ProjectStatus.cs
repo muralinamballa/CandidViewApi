@@ -24,6 +24,8 @@ namespace CandidView.Models.Output
         public MetricQuality Quality { get; set; }
         [JsonProperty(PropertyName = "qualityEngineeringPractice")]
         public MetricQualityEngineeringPractice QualityEngineeringPractice { get; set; }
+        [JsonProperty(PropertyName = "resource")]
+        public MetricResource Resource { get; set; }
 
     }
 }
