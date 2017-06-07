@@ -135,6 +135,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\HighlightsStatus\HighlightsStatus.cs" />
+    <Compile Include="Models\Input\CodeReviewDev.cs" />
+    <Compile Include="Models\Input\CodeReviewQA.cs" />
+    <Compile Include="Models\Input\MetricQualityEngineeringPractice.cs" />
     <Compile Include="Models\Input\MetricsSla.cs" />
     <Compile Include="Models\Master\BusinessUnit.cs" />
     <Compile Include="Models\Master\Commitment.cs" />
