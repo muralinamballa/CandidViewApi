@@ -76,13 +76,14 @@ namespace CandidView.Services
         private decimal CalculateSchedule(string[] values)
         {
             List<SprintCalendar> sprintData = JsonConvert.DeserializeObject<List<SprintCalendar>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/masters/sprintcalendar.json")));
-            int releaseSprintNumber = releaseSprint(values);
+            int releaseSprintNumber = ReleaseSprint(values);
             var currentSprint = sprintData.Find(item => (DateTime.Today >= item.StartDate && DateTime.Today <= item.EndDate));
             var noOfSprints = releaseSprintNumber - currentSprint.SprintNumber;
             decimal schedule = Convert.ToDecimal((noOfSprints - 1) - (int.Parse(values[3]) / int.Parse(values[5])));
             return schedule;
         }
-        private int releaseSprint(string[] values)
+
+        private int ReleaseSprint(string[] values)
         {
             List<SprintCalendar> sprintData = JsonConvert.DeserializeObject<List<SprintCalendar>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/masters/sprintcalendar.json")));
             List<ReleaseCalendar> releaseData = JsonConvert.DeserializeObject<List<ReleaseCalendar>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/masters/releasecalendar.json")));
@@ -95,14 +96,14 @@ namespace CandidView.Services
         private decimal[] CalculateQuality(string[] values)
         {
             decimal[] qualityCalculation = new decimal[4];
-            decimal RequirementTestCoverage = Math.Round((Convert.ToDecimal(values[12] + values[14]) / Convert.ToDecimal(values[11] + values[13])),2);
-            decimal AverageLeadTime = Convert.ToDecimal(values[25]);
-            decimal DefectLeakageQA = Convert.ToDecimal(0.4 + Convert.ToInt32(values[6]) + 0.6 + Convert.ToInt32(values[7]));
-            decimal ProductionDefect = Convert.ToDecimal(0.5 + Convert.ToInt32(values[8]) + 0.3 + Convert.ToInt32(values[9]) + 0.3 + Convert.ToInt32(values[10]));
-            qualityCalculation[0] = RequirementTestCoverage;
-            qualityCalculation[1] = AverageLeadTime;
-            qualityCalculation[2] = DefectLeakageQA;
-            qualityCalculation[3] = ProductionDefect;
+            decimal requirementTestCoverage = Math.Round((Convert.ToDecimal(values[12] + values[14]) / Convert.ToDecimal(values[11] + values[13])),2);
+            decimal averageLeadTime = Convert.ToDecimal(values[25]);
+            decimal defectLeakageQA = Convert.ToDecimal(0.4 + Convert.ToInt32(values[6]) + 0.6 + Convert.ToInt32(values[7]));
+            decimal productionDefect = Convert.ToDecimal(0.5 + Convert.ToInt32(values[8]) + 0.3 + Convert.ToInt32(values[9]) + 0.3 + Convert.ToInt32(values[10]));
+            qualityCalculation[0] = requirementTestCoverage;
+            qualityCalculation[1] = averageLeadTime;
+            qualityCalculation[2] = defectLeakageQA;
+            qualityCalculation[3] = productionDefect;
             return qualityCalculation;
 
         }
