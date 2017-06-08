@@ -15,13 +15,13 @@ namespace CandidView.Controllers
         [HttpGet]
         public List<RiskStatus> GetRiskStatus()
         {
-            List<RiskStatus> data = JsonConvert.DeserializeObject<List<RiskStatus>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/riskstatus.json")));
+            List<RiskStatus> data = JsonConvert.DeserializeObject<List<RiskStatus>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/masters/riskstatus.json")));
             return data;
         }
         [HttpGet]
         public List<HighlightsStatus> GetHighlightsStatus()
         {
-            List<HighlightsStatus> data = JsonConvert.DeserializeObject<List<HighlightsStatus>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/highlightsstatus.json")));
+            List<HighlightsStatus> data = JsonConvert.DeserializeObject<List<HighlightsStatus>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/masters/highlightsstatus.json")));
             return data;
         }
 
