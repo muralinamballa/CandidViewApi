@@ -17,7 +17,7 @@ namespace CandidView.Models.Output
         [JsonProperty(PropertyName = "teamSize")]
         public int TeamSize { get; set; }
         [JsonProperty(PropertyName = "scope")]
-        public decimal Scope { get; set; }
+        public MetricScope Scope { get; set; }
         [JsonProperty(PropertyName = "schedule")]
         public decimal Schedule { get; set; }
         [JsonProperty(PropertyName = "quality")]
