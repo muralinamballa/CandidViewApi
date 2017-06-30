@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace CandidView.Models.Output
 {
@@ -14,7 +15,9 @@ namespace CandidView.Models.Output
         public string TgoDesign { get; set; }
         [JsonProperty(PropertyName = "tgoConstruction")]
         public string TgoConstruction { get; set; }
-        [JsonProperty(PropertyName = "startDate")]
-        public string StartDate { get; set; }
+        [JsonProperty(PropertyName = "noOfDaysFromStartDate")]
+        public int NoOfDaysFromStartDate { get; set; }
+        [JsonProperty(PropertyName = "noOfDaysFromCodeFreezeDate")]
+        public int NoOfDaysFromCodeFreezeDate { get; set; }
     }
 }

@@ -47,7 +47,7 @@ namespace CandidView.Services
                                     TeamSize = programInfo.TeamSize,
                                     Scope = CalculateScope(values),
                                     Schedule = CalculateSchedule(values, sprintData),
-                                    Quality = CalculateQuality(values),
+                                    Quality = CalculateQuality(values,sprintData),
                                     QualityEngineeringPractice = CalculateQualityEngineeringPractice(values),
                                     Resource = CalculateResource(values)
                                 });
@@ -71,8 +71,9 @@ namespace CandidView.Services
                 DevelopmentDependencies = values[41],
                 TgoDesign = values[42],
                 TgoConstruction = values[43],
-                StartDate = values[44]
-            };
+                NoOfDaysFromStartDate = 34,
+                NoOfDaysFromCodeFreezeDate = 35
+        };
             return scopeData;
         }
         private decimal CalculateSchedule(string[] values, List<SprintCalendar> sprintData)
@@ -90,18 +91,18 @@ namespace CandidView.Services
             var releaseSprint = sprintData.Find(item => (releaseMonth.CodeFreezeDate >= item.StartDate && releaseMonth.CodeFreezeDate <= item.EndDate));
             return releaseSprint.SprintNumber;
         }
-        private MetricQuality CalculateQuality(string[] values)
+        private MetricQuality CalculateQuality(string[] values,List<SprintCalendar> sprintData)
         {
-            List<SprintCalendar> sprintData = JsonConvert.DeserializeObject<List<SprintCalendar>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/masters/sprintcalendar.json")));
             var currentSprint = sprintData.Find(item => (DateTime.Today >= item.StartDate && DateTime.Today <= item.EndDate));
-            var daysLeftIndex = Convert.ToInt32((currentSprint.EndDate - DateTime.Today).TotalDays / 10);
-            decimal pendingTestCoverage = Math.Round((Convert.ToDecimal(values[19] + values[21]) / Convert.ToDecimal(values[18] + values[20])), 2);
+            var daysLeftIndex = Convert.ToInt32((currentSprint.EndDate - DateTime.Today).TotalDays / 10);           
+            decimal pendingTestCoverage = (Convert.ToDecimal(values[18]) - Convert.ToDecimal(values[21])) / Convert.ToDecimal(values[18]);
             MetricQuality Quality = new MetricQuality
             {
-                RequirementTestCoverage = daysLeftIndex - pendingTestCoverage,
-                AverageLeadTime = Convert.ToDecimal(values[32]),
-                DefectLeakageQA = Convert.ToDecimal(0.4 + Convert.ToInt32(values[6]) + 0.6 + Convert.ToInt32(values[7])),
-                ProductionDefect = Convert.ToDecimal(0.5 + Convert.ToInt32(values[8]) + 0.3 + Convert.ToInt32(values[9]) + 0.3 + Convert.ToInt32(values[10]))
+                RequirementTestCoverage = Math.Round((daysLeftIndex - pendingTestCoverage),2),
+                //AverageLeadTime = Convert.ToDecimal(values[32]),
+                AverageLeadTime = 0.1M,
+                DefectLeakageQA = (0.4M*Convert.ToDecimal(values[6])) + (0.6M* Convert.ToDecimal(values[7])),
+                ProductionDefect = (0.5M * Convert.ToDecimal(values[8]))+(0.3M * Convert.ToDecimal(values[9]))+(0.2M * Convert.ToDecimal(values[10]))
             };
             return Quality;
         }
@@ -110,8 +111,8 @@ namespace CandidView.Services
             MetricQualityEngineeringPractice QualityEngineeringPractice = new MetricQualityEngineeringPractice
             {
                 TDDCoverage = Convert.ToDecimal(values[38]),
-                BDDCoverage = Math.Round((Convert.ToDecimal(values[19]) / Convert.ToDecimal(values[18])) * 100, 2),
-                MVPAdoption = Convert.ToDecimal(values[38]),
+                BDDCoverage = Math.Round(((Convert.ToDecimal(values[19])) / (Convert.ToDecimal(values[19]) + Convert.ToDecimal(values[20])))*100,2),
+                MVPAdoption = Convert.ToDecimal(values[37]),
                 CodeReviewDev = new CodeReviewDev
                 {
                     Catastrophic = Convert.ToDecimal(values[22]),
