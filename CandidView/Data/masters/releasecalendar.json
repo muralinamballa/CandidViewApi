@@ -1,22 +1,90 @@
 ﻿[
   {
+    "releaseNumber": "17.1",
+    "codeFreezDate": "12/08/2016"
+  },
+  {
+    "releaseNumber": "17.2",
+    "codeFreezDate": "01/12/2017"
+  },
+  {
+    "releaseNumber": "17.3",
+    "codeFreezDate": "01/26/2017"
+  },
+  {
+    "releaseNumber": "17.4",
+    "codeFreezDate": "02/09/2017"
+  },
+  {
+    "releaseNumber": "17.5",
+    "codeFreezDate": "02/23/2017"
+  },
+  {
+    "releaseNumber": "17.6",
+    "codeFreezDate": "03/09/2017"
+  },
+  {
+    "releaseNumber": "17.7",
+    "codeFreezDate": "03/23/2017"
+  },
+  {
+    "releaseNumber": "17.8",
+    "codeFreezDate": "04/06/2017"
+  },
+  {
+    "releaseNumber": "17.9",
+    "codeFreezDate": "04/20/2017"
+  },
+  {
+    "releaseNumber": "17.10",
+    "codeFreezDate": "05/11/2017"
+  },
+  {
+    "releaseNumber": "17.11",
+    "codeFreezDate": "05/25/2017"
+  },
+  {
     "releaseNumber": "17.12",
     "codeFreezDate": "06/08/2017"
   },
   {
+    "releaseNumber": "17.13",
+    "codeFreezDate": "06/22/2017"
+  },
+  {
     "releaseNumber": "17.14",
-    "codeFreezDate": "06/29/2017"
+    "codeFreezDate": "07/06/2017"
   },
   {
     "releaseNumber": "17.15",
-    "codeFreezDate": "07/29/2017"
+    "codeFreezDate": "07/20/2017"
   },
   {
     "releaseNumber": "17.16",
-    "codeFreezDate": "08/29/2017"
+    "codeFreezDate": "08/10/2017"
   },
   {
     "releaseNumber": "17.17",
-    "codeFreezDate": "09/29/2017"
+    "codeFreezDate": "08/24/2017"
+  },
+  {
+    "releaseNumber": "17.18",
+    "codeFreezDate": "09/07/2017"
+  },
+  {
+    "releaseNumber": "17.19",
+    "codeFreezDate": "09/21/2017"
+  },
+  {
+    "releaseNumber": "17.20",
+    "codeFreezDate": "10/05/2017"
+  },
+  {
+    "releaseNumber": "17.21",
+    "codeFreezDate": "10/19/2017"
+  },
+  {
+    "releaseNumber": "17.22",
+    "codeFreezDate": "11/09/2017"
   }
 ]

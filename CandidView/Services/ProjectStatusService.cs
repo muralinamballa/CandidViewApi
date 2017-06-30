@@ -45,7 +45,7 @@ namespace CandidView.Services
                                     InternalOwner = programInfo.InternalOwner,
                                     ExternalOwner = programInfo.ExternalOwner,
                                     TeamSize = programInfo.TeamSize,
-                                    Scope = CalculateScope(values),
+                                    Scope = CalculateScope(values,sprintData),
                                     Schedule = CalculateSchedule(values, sprintData),
                                     Quality = CalculateQuality(values,sprintData),
                                     QualityEngineeringPractice = CalculateQualityEngineeringPractice(values),
@@ -62,7 +62,7 @@ namespace CandidView.Services
                 throw ex;
             }
         }
-        private MetricScope CalculateScope(string[] values)
+        private MetricScope CalculateScope(string[] values, List<SprintCalendar> sprintData)
         {
             MetricScope scopeData = new MetricScope
             {
@@ -71,7 +71,7 @@ namespace CandidView.Services
                 DevelopmentDependencies = values[41],
                 TgoDesign = values[42],
                 TgoConstruction = values[43],
-                NoOfDaysFromStartDate = 34,
+                NoOfDaysFromStartDate = 35,
                 NoOfDaysFromCodeFreezeDate = 35
         };
             return scopeData;
@@ -94,11 +94,11 @@ namespace CandidView.Services
         private MetricQuality CalculateQuality(string[] values,List<SprintCalendar> sprintData)
         {
             var currentSprint = sprintData.Find(item => (DateTime.Today >= item.StartDate && DateTime.Today <= item.EndDate));
-            var daysLeftIndex = Convert.ToInt32((currentSprint.EndDate - DateTime.Today).TotalDays / 10);           
-            decimal pendingTestCoverage = (Convert.ToDecimal(values[18]) - Convert.ToDecimal(values[21])) / Convert.ToDecimal(values[18]);
+            var daysLeftIndex = ((currentSprint.EndDate - DateTime.Today).TotalDays / 10);           
+            decimal pendingTestCoverage = (1 - (Convert.ToDecimal(values[21]) / Convert.ToDecimal(values[18])));
             MetricQuality Quality = new MetricQuality
             {
-                RequirementTestCoverage = Math.Round((daysLeftIndex - pendingTestCoverage),2),
+                RequirementTestCoverage = Math.Round((Convert.ToDecimal(daysLeftIndex) - pendingTestCoverage),2),
                 //AverageLeadTime = Convert.ToDecimal(values[32]),
                 AverageLeadTime = 0.1M,
                 DefectLeakageQA = (0.4M*Convert.ToDecimal(values[6])) + (0.6M* Convert.ToDecimal(values[7])),
