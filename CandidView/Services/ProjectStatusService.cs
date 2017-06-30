@@ -33,16 +33,20 @@ namespace CandidView.Services
                                 string[] values = line.Split(',');
                                 var programInfo = programData.Find(item => item.ProgramId.ToString() == values[1]);
                                 var buInfo = businessData.Find(item => item.BuId == programInfo.BuId);
+
+                                List<SprintCalendar> sprintData = JsonConvert.DeserializeObject<List<SprintCalendar>>
+                                    (File.ReadAllText(HttpContext.Current.Server.MapPath("/data/masters/" + programInfo.SprintCalendar + ".json")));
                                 projectStatusList.Add(new ProjectStatus
                                 {
                                     Slno = projectStatusList.Count + 1,
                                     BuId = buInfo.BuId,
                                     BuName = buInfo.BuName,
                                     ProgramName = programInfo.ProgramName,
-                                    Owner = programInfo.Owner,
+                                    InternalOwner = programInfo.InternalOwner,
+                                    ExternalOwner = programInfo.ExternalOwner,
                                     TeamSize = programInfo.TeamSize,
                                     Scope = CalculateScope(values),
-                                    Schedule = CalculateSchedule(values),
+                                    Schedule = CalculateSchedule(values, sprintData),
                                     Quality = CalculateQuality(values),
                                     QualityEngineeringPractice = CalculateQualityEngineeringPractice(values),
                                     Resource = CalculateResource(values)
@@ -71,18 +75,16 @@ namespace CandidView.Services
             };
             return scopeData;
         }
-        private decimal CalculateSchedule(string[] values)
+        private decimal CalculateSchedule(string[] values, List<SprintCalendar> sprintData)
         {
-            List<SprintCalendar> sprintData = JsonConvert.DeserializeObject<List<SprintCalendar>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/masters/sprintcalendar.json")));
-            int releaseSprintNumber = ReleaseSprint(values);
+            int releaseSprintNumber = ReleaseSprint(values, sprintData);
             var currentSprint = sprintData.Find(item => (DateTime.Today >= item.StartDate && DateTime.Today <= item.EndDate));
             var noOfSprints = releaseSprintNumber - currentSprint.SprintNumber;
             decimal schedule = Convert.ToDecimal((noOfSprints - 1) - (int.Parse(values[3]) / int.Parse(values[5])));
             return schedule;
         }
-        private int ReleaseSprint(string[] values)
+        private int ReleaseSprint(string[] values, List<SprintCalendar> sprintData)
         {
-            List<SprintCalendar> sprintData = JsonConvert.DeserializeObject<List<SprintCalendar>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/masters/sprintcalendar.json")));
             List<ReleaseCalendar> releaseData = JsonConvert.DeserializeObject<List<ReleaseCalendar>>(File.ReadAllText(HttpContext.Current.Server.MapPath("/data/masters/releasecalendar.json")));
             var releaseMonth = releaseData.Find(item => item.ReleaseNumber.ToString() == values[2]);
             var releaseSprint = sprintData.Find(item => (releaseMonth.CodeFreezeDate >= item.StartDate && releaseMonth.CodeFreezeDate <= item.EndDate));

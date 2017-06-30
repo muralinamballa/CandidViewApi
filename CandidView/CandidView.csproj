@@ -156,7 +156,7 @@
     <Content Include="Data\masters\businessunit.json" />
     <Content Include="Data\masters\program.json" />
     <Content Include="Data\masters\releasecalendar.json" />
-    <Content Include="Data\masters\sprintcalendar.json" />
+    <Content Include="Data\masters\wednesday-sprintcalendar.json" />
     <Content Include="Data\masters\commitment.json" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -180,6 +180,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\masters\monday-sprintcalendar.json" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

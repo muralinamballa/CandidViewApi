@@ -1,51 +1,67 @@
 ﻿[
-  {
-    "buId": "1",
-    "programId": "1241",
-    "programName": "Marvel",
-    "owner": "Shafi",
-    "teamSize": 70
-  },
-  {
-    "buId": "1",
-    "programId": "1352",
-    "programName": "Panthers",
-    "owner": "Shafi",
-    "teamSize": 60
-  },
-  {
-    "buId": "1",
-    "programId": "1463",
-    "programName": "Phoenix",
-    "owner": "Shafi",
-    "teamSize": 50
-  },
-  {
-    "buId": "1",
-    "programId": "1574",
-    "programName": "Dynamos",
-    "owner": "Shafi",
-    "teamSize": 40
-  },
-  {
-    "buId": "1",
-    "programId": "1685",
-    "programName": "Enhancers",
-    "owner": "Shafi",
-    "teamSize": 30
-  },
-  {
-    "buId": "1",
-    "programId": "1796",
-    "programName": "Olympians",
-    "owner": "Shafi",
-    "teamSize": 20
-  },
-  {
-    "buId": "1",
-    "programId": "1807",
-    "programName": "Himalayans",
-    "owner": "Shafi",
-    "teamSize": 10
-  }
+    {
+        "buId": "1",
+        "programId": "1241",
+        "programName": "Charitable Beneficiaries",
+        "scrumName": "Marvels",
+        "internalOwner": "Neetha Nichani",
+        "externalOwner": "Julie Key",
+        "teamSize": 16,
+        "sprintCalendar": "wednesday-sprintcalendar"
+    },
+    {
+        "buId": "1",
+        "programId": "1352",
+        "programName": "Charitable Beneficiaries",
+        "scrumName": "Marvels",
+        "internalOwner": "Neetha Nichani",
+        "externalOwner": "Julie Key",
+        "teamSize": 9,
+        "sprintCalendar": "wednesday-sprintcalendar"
+    },
+    {
+        "buId": "1",
+        "programId": "1463",
+        "programName": "Equity Award Center- Big Web",
+        "internalOwner": "Ajay Kumar",
+        "externalOwner": "Jay Pierson",
+        "teamSize": 13,
+        "sprintCalendar": "wednesday-sprintcalendar"
+    },
+    {
+        "buId": "1",
+        "programId": "1574",
+        "programName": "Equity Award Center – Mobile Web",
+        "internalOwner": "Ajay Kumar",
+        "externalOwner": "Carlos V",
+        "teamSize": 14,
+        "sprintCalendar": "wednesday-sprintcalendar"
+    },
+    {
+        "buId": "1",
+        "programId": "1685",
+        "programName": "Trade – Cancel Buy write",
+        "internalOwner": "Ravi Bl",
+        "externalOwner": "Jay Pierson/ Michael Samples",
+        "teamSize": 10,
+        "sprintCalendar": "wednesday-sprintcalendar"
+    },
+    {
+        "buId": "1",
+        "programId": "1796",
+        "programName": "Schwab.com Intl",
+        "internalOwner": "Binod Kumar",
+        "externalOwner": "Jay Pierson",
+        "teamSize": 2,
+        "sprintCalendar": "monday-sprintcalendar"
+    },
+    {
+        "buId": "1",
+        "programId": "1807",
+        "programName": "CLWE",
+        "internalOwner": "Binod Kumar",
+        "externalOwner": "Jay Pierson",
+        "teamSize": 13,
+        "sprintCalendar": "monday-sprintcalendar"
+    }
 ]
