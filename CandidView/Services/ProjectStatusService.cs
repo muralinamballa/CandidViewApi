@@ -110,9 +110,9 @@ namespace CandidView.Services
         {
             MetricQualityEngineeringPractice QualityEngineeringPractice = new MetricQualityEngineeringPractice
             {
-                TDDCoverage = Convert.ToDecimal(values[38]),
-                BDDCoverage = Math.Round(((Convert.ToDecimal(values[19])) / (Convert.ToDecimal(values[19]) + Convert.ToDecimal(values[20])))*100,2),
-                MVPAdoption = Convert.ToDecimal(values[37]),
+                TDDCoverage = (values[38] != "N/A") ? Convert.ToDecimal(values[38]) : 0,
+                BDDCoverage = Math.Round(((Convert.ToDecimal(values[19])) / (Convert.ToDecimal(values[19]) + Convert.ToDecimal(values[20]))) * 100, 2),
+                MVPAdoption = (values[37] != "N/A") ? Convert.ToDecimal(values[37]) : 0,
                 CodeReviewDev = new CodeReviewDev
                 {
                     Catastrophic = Convert.ToDecimal(values[22]),
@@ -127,8 +127,8 @@ namespace CandidView.Services
                     MajorDefectsWithWorkaround = Convert.ToDecimal(values[28]),
                     MinorDefects = Convert.ToDecimal(values[29]),
                 },
-                MaintainabilityIndex = Convert.ToDecimal(values[30]),
-                CyclomaticComplexity = Convert.ToDecimal(values[31])
+                MaintainabilityIndex = (values[30] != "N/A") ? Convert.ToDecimal(values[30]) : 0,
+                CyclomaticComplexity = (values[31] != "N/A") ? Convert.ToDecimal(values[31]) : 0
             };
             return QualityEngineeringPractice;
         }
