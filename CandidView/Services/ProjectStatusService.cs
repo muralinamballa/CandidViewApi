@@ -99,8 +99,7 @@ namespace CandidView.Services
             MetricQuality Quality = new MetricQuality
             {
                 RequirementTestCoverage = Math.Round((Convert.ToDecimal(daysLeftIndex) - pendingTestCoverage),2),
-                //AverageLeadTime = Convert.ToDecimal(values[32]),
-                AverageLeadTime = 0.1M,
+                AverageLeadTime = Convert.ToDecimal(values[32]),
                 DefectLeakageQA = (0.4M*Convert.ToDecimal(values[6])) + (0.6M* Convert.ToDecimal(values[7])),
                 ProductionDefect = (0.5M * Convert.ToDecimal(values[8]))+(0.3M * Convert.ToDecimal(values[9]))+(0.2M * Convert.ToDecimal(values[10]))
             };
