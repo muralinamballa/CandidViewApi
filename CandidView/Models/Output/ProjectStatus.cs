@@ -28,6 +28,7 @@ namespace CandidView.Models.Output
         public MetricQualityEngineeringPractice QualityEngineeringPractice { get; set; }
         [JsonProperty(PropertyName = "resource")]
         public MetricResource Resource { get; set; }
-
+        [JsonProperty(PropertyName = "release")]
+        public decimal Release { get; set; }
     }
 }

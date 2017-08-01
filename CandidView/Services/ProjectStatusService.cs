@@ -49,7 +49,8 @@ namespace CandidView.Services
                                     Schedule = CalculateSchedule(values, sprintData),
                                     Quality = CalculateQuality(values,sprintData),
                                     QualityEngineeringPractice = CalculateQualityEngineeringPractice(values),
-                                    Resource = CalculateResource(values)
+                                    Resource = CalculateResource(values),
+                                    Release = Convert.ToDecimal(values[2])
                                 });
                             }
                         }
