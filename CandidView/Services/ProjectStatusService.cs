@@ -108,35 +108,35 @@ namespace CandidView.Services
         }
         private MetricQualityEngineeringPractice CalculateQualityEngineeringPractice(string[] values)
         {
-            MetricQualityEngineeringPractice QualityEngineeringPractice = new MetricQualityEngineeringPractice
+            MetricQualityEngineeringPractice QualityEngineeringPractice = new MetricQualityEngineeringPractice();
+
+            QualityEngineeringPractice.TDDCoverage = (values[38] != "N/A") ? Convert.ToDecimal(values[38]) : 0;
+            QualityEngineeringPractice.BDDCoverage = Math.Round(((Convert.ToDecimal(values[18]) - Convert.ToDecimal(values[21])) / Convert.ToDecimal(values[18])) * 100, 2);
+            QualityEngineeringPractice.MVPAdoption = (values[37] != "N/A") ? Convert.ToDecimal(values[37]) : 0;
+            QualityEngineeringPractice.CodeReviewDev = new CodeReviewDev
             {
-                TDDCoverage = (values[38] != "N/A") ? Convert.ToDecimal(values[38]) : 0,
-                BDDCoverage = Math.Round(((Convert.ToDecimal(values[19])) / (Convert.ToDecimal(values[19]) + Convert.ToDecimal(values[20]))) * 100, 2),
-                MVPAdoption = (values[37] != "N/A") ? Convert.ToDecimal(values[37]) : 0,
-                CodeReviewDev = new CodeReviewDev
-                {
-                    Catastrophic = Convert.ToDecimal(values[22]),
-                    MajorDefectsWithoutWorkaround = Convert.ToDecimal(values[23]),
-                    MajorDefectsWithWorkaround = Convert.ToDecimal(values[24]),
-                    MinorDefects = Convert.ToDecimal(values[25]),
-                },
-                CodeReviewQA = new CodeReviewQA
-                {
-                    Catastrophic = Convert.ToDecimal(values[26]),
-                    MajorDefectsWithoutWorkaround = Convert.ToDecimal(values[27]),
-                    MajorDefectsWithWorkaround = Convert.ToDecimal(values[28]),
-                    MinorDefects = Convert.ToDecimal(values[29]),
-                },
-                MaintainabilityIndex = (values[30] != "N/A") ? Convert.ToDecimal(values[30]) : 0,
-                CyclomaticComplexity = (values[31] != "N/A") ? Convert.ToDecimal(values[31]) : 0
+                Catastrophic = Convert.ToDecimal(values[22]),
+                MajorDefectsWithoutWorkaround = Convert.ToDecimal(values[23]),
+                MajorDefectsWithWorkaround = Convert.ToDecimal(values[24]),
+                MinorDefects = Convert.ToDecimal(values[25]),
             };
+            QualityEngineeringPractice.CodeReviewQA = new CodeReviewQA
+            {
+                Catastrophic = Convert.ToDecimal(values[26]),
+                MajorDefectsWithoutWorkaround = Convert.ToDecimal(values[27]),
+                MajorDefectsWithWorkaround = Convert.ToDecimal(values[28]),
+                MinorDefects = Convert.ToDecimal(values[29]),
+            };
+            QualityEngineeringPractice.MaintainabilityIndex = (values[30] != "N/A") ? Convert.ToDecimal(values[30]) : 0;
+            QualityEngineeringPractice.CyclomaticComplexity = (values[31] != "N/A") ? Convert.ToDecimal(values[31]) : 0;
+
             return QualityEngineeringPractice;
         }
         private MetricResource CalculateResource(string[] values)
         {
             MetricResource Resource = new MetricResource
             {
-                Attrition = Convert.ToDecimal(values[33]),
+                Attrition = (values[33] != "N/A") ? Convert.ToDecimal(values[33]) : 0,
                 AvailabilityofResource = values[34]
             };
             return Resource;
